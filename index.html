@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brook · Legal</title>
+  <style>
+    :root {
+      --cream: #faf6f1;
+      --cream-dark: #f0e8df;
+      --ink: #2c241c;
+      --ink-soft: #5c4f42;
+      --terracotta: #c45c3e;
+      --terracotta-deep: #a34830;
+      --line: #e0d4c8;
+      --card: #fffdfb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+    .wrap {
+      max-width: 28rem;
+      margin: 0 auto;
+      padding: 3.5rem 1.25rem 4rem;
+    }
+    .brand {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-family: system-ui, -apple-system, sans-serif;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      line-height: 1.2;
+    }
+    .lede {
+      color: var(--ink-soft);
+      margin: 0 0 2rem;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.95rem;
+    }
+    .cards {
+      display: grid;
+      gap: 0.85rem;
+    }
+    a.card {
+      display: block;
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      box-shadow: 0 6px 18px rgba(44, 36, 28, 0.06);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    a.card:hover {
+      transform: translateY(-1px);
+      border-color: var(--terracotta);
+    }
+    a.card strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 0.25rem;
+    }
+    a.card span {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+    }
+    .meta {
+      margin-top: 2rem;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
+    .meta a { color: var(--terracotta-deep); }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="brand">Brook · Nutrition</p>
+    <h1>Legal</h1>
+    <p class="lede">Privacy Policy and Terms of Service for Brook (<code style="font-size:0.85em;background:var(--cream-dark);padding:0.1em 0.35em;border-radius:3px;">app.hk.001</code>). Effective 17 October 2026.</p>
+    <div class="cards">
+      <a class="card" href="privacy-policy.html">
+        <strong>Privacy Policy</strong>
+        <span>What Brook collects, HealthKit, AI, and your choices</span>
+      </a>
+      <a class="card" href="terms-of-service.html">
+        <strong>Terms of Service</strong>
+        <span>How you may use Brook · not medical advice</span>
+      </a>
+    </div>
+    <p class="meta">
+      Publisher: Singh Jaskaran<br />
+      Support: <a href="mailto:cozkyle@gmail.com">cozkyle@gmail.com</a>
+    </p>
+    <footer>Draft for App Store / friends beta. Not legal advice — review before relying on it.</footer>
+  </div>
+</body>
+</html>
