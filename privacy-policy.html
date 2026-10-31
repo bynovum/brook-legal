@@ -143,30 +143,36 @@
       <p class="brand">Brook · Nutrition</p>
       <h1>Privacy Policy</h1>
       <div class="meta">
-        <div><strong>Effective date:</strong> 17 October 2026</div>
-        <div><strong>App:</strong> Brook · Bundle ID: <code>app.hk.001</code></div>
+        <div><strong>Effective date:</strong> 31 October 2026</div>
+        <div><strong>App:</strong> Brook · Bundle ID: <code>app.hearth.001</code></div>
+        <div><strong>iCloud container:</strong> <code>iCloud.app.hearth.001</code></div>
         <div><strong>Publisher:</strong> Singh Jaskaran (individual developer), Hong Kong</div>
-        <div><strong>Contact:</strong> <a href="mailto:cozkyle@gmail.com">cozkyle@gmail.com</a></div>
+        <div><strong>Contact:</strong> <a href="mailto:feedback@brook.app">feedback@brook.app</a></div>
       </div>
     </header>
 
     <aside class="banner">
-      <strong>Not legal advice · review before publish.</strong>
-      This is a draft for friends-beta / App Store Connect. It is not formal legal counsel. Have a qualified lawyer review before you publish or submit for App Review.
+      <strong>Plain-language policy for App Store / public beta.</strong>
+      This explains what Brook processes. It is not formal legal counsel — have a lawyer review if you expand markets or add paid features.
     </aside>
 
     <h2>1. Overview</h2>
-    <p>Brook is a personal nutrition logging app. For the friends beta, <strong>Brook does not create user accounts</strong> and <strong>does not use Sign in with Apple</strong>. Your logs, photos, and preferences stay on your device (SwiftData). iCloud sync is <strong>not shipping</strong> for this beta.</p>
-    <p>This policy explains what data Brook may access or send, why, and your choices. Plain English, short sections.</p>
+    <p>Brook is a personal nutrition logging app with an optional social layer called <strong>Nom Noms</strong>.</p>
+    <ul>
+      <li><strong>Diary &amp; local data</strong> (meals, photos, preferences) stay on your device (SwiftData). Full diary iCloud sync is <strong>not</strong> enabled for free users.</li>
+      <li><strong>Social / Nom Noms</strong> uses Apple <strong>CloudKit</strong> (public database in <code>iCloud.app.hearth.001</code>). You may claim a public <strong>PublicProfile</strong> handle (username) tied to your iCloud account — this is <strong>not</strong> Sign in with Apple and not a separate Brook password account.</li>
+    </ul>
+    <p>This policy explains what data Brook may access or send, why, and your choices.</p>
 
     <h2>2. What we collect (categories)</h2>
-    <p>Depending on what you enable and use, Brook may process:</p>
     <table>
       <thead><tr><th>Category</th><th>Examples</th></tr></thead>
       <tbody>
-        <tr><td><strong>Nutrition &amp; food logs</strong></td><td>Meals, macros, calories, water, weight entries you add or edit</td></tr>
-        <tr><td><strong>Photos &amp; camera images</strong></td><td>Meal photos, nutrition label photos, place/story photos</td></tr>
-        <tr><td><strong>Text you enter</strong></td><td>Food descriptions, search queries, notes</td></tr>
+        <tr><td><strong>Nutrition &amp; food logs</strong></td><td>Meals, macros, calories, water, weight entries you add or edit (on device)</td></tr>
+        <tr><td><strong>Photos &amp; camera images</strong></td><td>Meal photos, nutrition label photos, place/story photos; Nom Noms share frames you post</td></tr>
+        <tr><td><strong>Text you enter</strong></td><td>Food descriptions, captions, search queries, notes, report notes</td></tr>
+        <tr><td><strong>Social profile</strong></td><td>Claimed username, display name, avatar stickers, bio/status, friend graph signals, Nom Noms posts &amp; reactions in CloudKit</td></tr>
+        <tr><td><strong>Moderation signals</strong></td><td>Reports you submit about posts (reason, optional note, post id); local block list on your device</td></tr>
         <tr><td><strong>Barcode / product data</strong></td><td>Codes you scan; product metadata from Open Food Facts</td></tr>
         <tr><td><strong>Health &amp; fitness (HealthKit)</strong></td><td>Steps, active energy, distance, body mass (read); dietary energy, macros, water, weight (write) — only when you allow</td></tr>
         <tr><td><strong>Location</strong></td><td>Meal pins, Map / “Try next”, abroad country detection — only when you allow</td></tr>
@@ -174,17 +180,18 @@
         <tr><td><strong>AI processing inputs</strong></td><td>Images and text you choose to analyze (sent to DeepSeek — see below)</td></tr>
       </tbody>
     </table>
-    <p>We do <strong>not</strong> currently collect account credentials, payment profiles inside Brook, or a separate analytics profile for the beta.</p>
+    <p>We do <strong>not</strong> collect a separate Brook password, payment card numbers inside Brook, or a custom analytics profile for the beta. Ads are <strong>off</strong>.</p>
 
     <h2>3. How we collect it</h2>
     <ul>
-      <li><strong>You enter it</strong> — food logs, edits, descriptions, searches.</li>
+      <li><strong>You enter it</strong> — food logs, captions, descriptions, searches, friend requests.</li>
       <li><strong>Device permissions</strong> — Camera, Photos, Location, Notifications, HealthKit. iOS asks; you can deny or later revoke in <strong>iOS Settings</strong>.</li>
-      <li><strong>On-device storage</strong> — SwiftData on your iPhone; no Brook cloud account for beta.</li>
-      <li><strong>Barcode lookups</strong> — product metadata fetched from <strong>Open Food Facts</strong> when you scan/look up a product.</li>
+      <li><strong>On-device storage</strong> — SwiftData / UserDefaults on your iPhone for diary and preferences.</li>
+      <li><strong>CloudKit (Apple)</strong> — when you use Nom Noms / friends: PublicProfile, FeedPost / FeedIndex, friend request records, reactions, and optional Report records in the public CloudKit database for container <code>iCloud.app.hearth.001</code>. Apple authenticates you via iCloud; Brook does not see your Apple ID password.</li>
+      <li><strong>Barcode lookups</strong> — product metadata from <strong>Open Food Facts</strong> when you scan/look up a product.</li>
       <li><strong>AI features</strong> — when you use meal photo analysis, describe-text, label OCR AI fallback, or food search AI, the relevant <strong>image and/or text may be sent to DeepSeek’s servers</strong> for processing.</li>
       <li><strong>Apple frameworks</strong> — HealthKit, MapKit, User Notifications, App Store distribution as provided by Apple.</li>
-      <li><strong>AdMob SDK</strong> — may be present in the app binary for a future ads path, but <strong>ads are OFF and not initialized for the friends beta</strong>. See §5.</li>
+      <li><strong>AdMob SDK</strong> — may be present in the app binary for a future ads path, but <strong>ads are OFF and not initialized</strong> for this beta. See §5.</li>
     </ul>
 
     <h2>4. Why we use it</h2>
@@ -192,6 +199,8 @@
       <thead><tr><th>Purpose</th><th>Data involved</th></tr></thead>
       <tbody>
         <tr><td>Log meals and nutrition</td><td>Your entries, photos, barcode results, AI estimates you accept/edit</td></tr>
+        <tr><td>Share Nom Noms with friends</td><td>PublicProfile, posts, reactions, friend graph via CloudKit</td></tr>
+        <tr><td>Safety &amp; moderation</td><td>Reports, blocks (blocks stay on your device)</td></tr>
         <tr><td>Show maps / pins / “Try next” / abroad context</td><td>Location (optional)</td></tr>
         <tr><td>Reflect activity &amp; body metrics</td><td>HealthKit (optional)</td></tr>
         <tr><td>Remind you to log</td><td>Notifications (optional)</td></tr>
@@ -205,60 +214,63 @@
     <table>
       <thead><tr><th>Party</th><th>Role</th><th>What may be shared</th></tr></thead>
       <tbody>
+        <tr><td><strong>Apple (CloudKit / iCloud)</strong></td><td>Social Nom Noms + PublicProfile storage</td><td>Profile, posts, friend signals, reports you submit — under Apple’s CloudKit / iCloud terms and your iCloud account</td></tr>
         <tr><td><strong>DeepSeek</strong></td><td>AI analysis (meal photos, describe-text, label OCR fallback, food search AI)</td><td>Images and/or text you submit for those features. Processing may occur <strong>in China and/or outside Hong Kong</strong>.</td></tr>
         <tr><td><strong>Open Food Facts</strong></td><td>Barcode / product metadata</td><td>Product codes / lookup requests you initiate</td></tr>
         <tr><td><strong>Apple</strong></td><td>HealthKit, MapKit, notifications, App Store</td><td>Data handled under Apple’s terms and your iOS privacy controls</td></tr>
-        <tr><td><strong>Google AdMob</strong></td><td>Ads SDK may be in the binary</td><td><strong>Ads are not active / not initialized for friends beta.</strong> If ads return later, we will update this policy; <strong>health data will not be used for advertising</strong> (Apple HealthKit rules).</td></tr>
+        <tr><td><strong>Google AdMob</strong></td><td>Ads SDK may be in the binary</td><td><strong>Ads are not active / not initialized for this beta.</strong> If ads return later, we will update this policy; <strong>health data will not be used for advertising</strong> (Apple HealthKit rules).</td></tr>
       </tbody>
     </table>
-    <p>We do <strong>not</strong> currently run a separate analytics SDK (e.g. we are not claiming Firebase Analytics for this beta). Beyond Apple/system diagnostics you may already share with Apple, Brook does not send a custom analytics stream we control.</p>
-    <p>Badges, streaks, and Discover cosmetics are <strong>local</strong> on your device.</p>
+    <p>We do <strong>not</strong> currently run a separate analytics SDK we control (e.g. Firebase Analytics is not claimed for this beta). Beyond Apple/system diagnostics you may already share with Apple, Brook does not send a custom analytics stream.</p>
+    <p>Badges, streaks, and Discover cosmetics are primarily <strong>local</strong> on your device (some badge ids may appear on your PublicProfile when you claim a handle).</p>
 
     <h2>6. International transfers</h2>
     <p>When you use AI features, content may be processed by <strong>DeepSeek outside Hong Kong</strong>, including possibly <strong>in China</strong>. By using those features, you understand that transfer/processing may occur under DeepSeek’s infrastructure and practices. If you prefer not to send data abroad for AI, do not use those AI features (you can still log manually).</p>
+    <p>CloudKit data is processed by <strong>Apple</strong> according to Apple’s iCloud / CloudKit regions and practices for your Apple ID.</p>
 
     <h2>7. Retention &amp; deletion</h2>
     <ul>
-      <li><strong>On device:</strong> Your Brook data lives on your iPhone for the beta. Deleting the app (or clearing Brook’s local data) removes local Brook storage, subject to how iOS handles app deletion.</li>
-      <li><strong>HealthKit:</strong> Data written to Apple Health remains under your Apple Health controls; remove or manage it in the Health app / iOS Settings as Apple allows.</li>
-      <li><strong>AI / third parties:</strong> Content sent for a request is processed to return a result. We do not operate a Brook cloud archive of your meals for beta. Third-party retention is governed by those providers’ policies.</li>
-      <li><strong>Requests:</strong> Email cozkyle@gmail.com for privacy questions. Because beta data is primarily on-device, the practical way to delete Brook’s local data is to delete the app or clear it locally; we cannot remotely wipe a device we do not host.</li>
+      <li><strong>On device:</strong> Diary data lives on your iPhone. Deleting the app removes local Brook storage, subject to how iOS handles app deletion.</li>
+      <li><strong>Nom Noms / PublicProfile:</strong> In Settings you can <strong>Delete my Brook profile</strong> (when you have a claimed handle). That best-effort deletes your PublicProfile and your FeedPosts / FeedIndex from CloudKit and clears the local claim. Some friend-request / inbox remnants may remain until cleaned by normal friend flows; contact us if you need help finishing a wipe.</li>
+      <li><strong>Blocks:</strong> Stored on your device only; clearing Brook / reinstall clears them unless restored from a backup.</li>
+      <li><strong>HealthKit:</strong> Data written to Apple Health remains under your Apple Health controls.</li>
+      <li><strong>AI / third parties:</strong> Content sent for a request is processed to return a result. Third-party retention is governed by those providers’ policies.</li>
+      <li><strong>Requests:</strong> Email <a href="mailto:feedback@brook.app">feedback@brook.app</a> for privacy questions.</li>
     </ul>
 
     <h2>8. Children’s privacy</h2>
-    <p>Brook is <strong>not directed at children under 13</strong>. We do not knowingly collect personal information from children under 13 (US COPPA-style baseline). If you believe a child under 13 has provided data through Brook, contact cozkyle@gmail.com. Families in Hong Kong and elsewhere should also follow local age / parental-consent rules; you may raise the minimum age in the Terms if you expand markets later.</p>
+    <p>Brook is <strong>not directed at children under 13</strong>. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided data through Brook, contact feedback@brook.app.</p>
 
     <h2>9. Health data &amp; advertising</h2>
     <ul>
       <li>HealthKit data is used <strong>only</strong> for Brook’s health/nutrition features you enable.</li>
       <li>It is <strong>not</strong> used for advertising, marketing, or sale to data brokers.</li>
-      <li>AdMob may exist in the binary but is <strong>inactive for friends beta</strong>. If ads return, health data still will <strong>not</strong> power ads.</li>
+      <li>AdMob may exist in the binary but is <strong>inactive for this beta</strong>. If ads return, health data still will <strong>not</strong> power ads.</li>
     </ul>
 
     <h2>10. Your choices &amp; withdrawing consent</h2>
     <ul>
       <li>Deny or revoke <strong>Camera, Photos, Location, Notifications, Health</strong> in <strong>iOS Settings → Brook</strong> (and Health app sharing settings).</li>
       <li>Stop using AI features that upload images/text.</li>
+      <li>Unshare / delete Nom Noms posts; delete your Brook profile from Settings; block or report others’ posts.</li>
       <li>Delete the app to remove local Brook storage.</li>
-      <li>Contact cozkyle@gmail.com with questions.</li>
+      <li>Contact <a href="mailto:feedback@brook.app">feedback@brook.app</a>.</li>
     </ul>
 
     <h2>11. Changes to this policy</h2>
-    <p>We may update this Privacy Policy. For material changes we will update the <strong>effective date</strong> and, where practical for a shipped app, note changes in-app or via the hosted policy URL (<a href="https://bynovum.github.io/brook-legal/privacy-policy.html">https://bynovum.github.io/brook-legal/privacy-policy.html</a>). Continued use after an update means you accept the revised policy, to the extent allowed by law.</p>
+    <p>We may update this Privacy Policy. For material changes we will update the <strong>effective date</strong> and, where practical, note changes in-app or via the hosted policy URL (<a href="https://bynovum.github.io/brook-legal/privacy-policy.html">https://bynovum.github.io/brook-legal/privacy-policy.html</a>). Continued use after an update means you accept the revised policy, to the extent allowed by law.</p>
 
     <h2>12. Contact</h2>
     <p>
       <strong>Publisher:</strong> Singh Jaskaran<br />
-      <strong>Email:</strong> <a href="mailto:cozkyle@gmail.com">cozkyle@gmail.com</a><br />
+      <strong>Support / privacy:</strong> <a href="mailto:feedback@brook.app">feedback@brook.app</a><br />
       <strong>Location:</strong> Hong Kong<br />
-      <strong>Privacy Policy URL:</strong> <a href="https://bynovum.github.io/brook-legal/privacy-policy.html">https://bynovum.github.io/brook-legal/privacy-policy.html</a><br />
-      <strong>Support:</strong> <a href="mailto:cozkyle@gmail.com">cozkyle@gmail.com</a>
+      <strong>Privacy Policy URL:</strong> <a href="https://bynovum.github.io/brook-legal/privacy-policy.html">https://bynovum.github.io/brook-legal/privacy-policy.html</a>
     </p>
-    <p>If you expand to the EU/UK later, you may need additional disclosures (legal basis, representatives, etc.). Those are <strong>not</strong> claimed here for this Hong Kong–first friends beta.</p>
 
     <p class="crossnav" style="font-family:system-ui,-apple-system,sans-serif;font-size:0.9rem;margin:2rem 0 1rem;">Also see: <a href="https://bynovum.github.io/brook-legal/terms-of-service.html">Terms of Service</a></p>
     <footer>
-      Draft only. Not legal advice. Review before publish.
+      Brook · app.hearth.001 · Updated 31 October 2026. Not a substitute for legal advice.
     </footer>
   </div>
 </body>
