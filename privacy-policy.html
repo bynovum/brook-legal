@@ -143,7 +143,7 @@
       <p class="brand">Brook · Nutrition</p>
       <h1>Privacy Policy</h1>
       <div class="meta">
-        <div><strong>Effective date:</strong> 31 October 2026</div>
+        <div><strong>Effective date:</strong> 2 November 2026</div>
         <div><strong>App:</strong> Brook · Bundle ID: <code>app.hearth.001</code></div>
         <div><strong>iCloud container:</strong> <code>iCloud.app.hearth.001</code></div>
         <div><strong>Publisher:</strong> Singh Jaskaran (individual developer), Hong Kong</div>
@@ -151,16 +151,16 @@
       </div>
     </header>
 
-    <aside class="banner">
-      <strong>Plain-language policy for App Store / public beta.</strong>
-      This explains what Brook processes. It is not formal legal counsel — have a lawyer review if you expand markets or add paid features.
-    </aside>
+    <!-- Internal note (not rendered): plain-language policy written for App Store /
+         public beta. Not formal legal counsel — have a lawyer review if you expand
+         markets or add paid features. -->
 
     <h2>1. Overview</h2>
     <p>Brook is a personal nutrition logging app with an optional social layer called <strong>Nom Noms</strong>.</p>
     <ul>
       <li><strong>Diary &amp; local data</strong> (meals, photos, preferences) stay on your device (SwiftData). Full diary iCloud sync is <strong>not</strong> enabled for free users.</li>
       <li><strong>Social / Nom Noms</strong> uses Apple <strong>CloudKit</strong> (public database in <code>iCloud.app.hearth.001</code>). You may claim a public <strong>PublicProfile</strong> handle (username) tied to your iCloud account — this is <strong>not</strong> Sign in with Apple and not a separate Brook password account.</li>
+      <li><strong>Profile visibility</strong> — you choose whether your profile is <strong>Everyone</strong> (public) or <strong>Friends only</strong>, from your profile in the Friends area of the You tab. See §2a for what each setting shows.</li>
     </ul>
     <p>This policy explains what data Brook may access or send, why, and your choices.</p>
 
@@ -172,7 +172,7 @@
         <tr><td><strong>Photos &amp; camera images</strong></td><td>Meal photos, nutrition label photos, place/story photos; Nom Noms share frames you post</td></tr>
         <tr><td><strong>Text you enter</strong></td><td>Food descriptions, captions, search queries, notes, report notes</td></tr>
         <tr><td><strong>Social profile</strong></td><td>Claimed username, display name, avatar stickers, bio/status, friend graph signals, Nom Noms posts &amp; reactions in CloudKit</td></tr>
-        <tr><td><strong>Moderation signals</strong></td><td>Reports you submit about posts (reason, optional note, post id); local block list on your device</td></tr>
+        <tr><td><strong>Moderation signals</strong></td><td>Reports you submit about posts (reason, optional note, post id, and a snapshot of the reported post as it appeared when you reported it); a local block list on your device</td></tr>
         <tr><td><strong>Barcode / product data</strong></td><td>Codes you scan; product metadata from Open Food Facts</td></tr>
         <tr><td><strong>Health &amp; fitness (HealthKit)</strong></td><td>Steps, active energy, distance, body mass (read); dietary energy, macros, water, weight (write) — only when you allow</td></tr>
         <tr><td><strong>Location</strong></td><td>Meal pins, Map / “Try next”, abroad country detection — only when you allow</td></tr>
@@ -181,6 +181,28 @@
       </tbody>
     </table>
     <p>We do <strong>not</strong> collect a separate Brook password, payment card numbers inside Brook, or a custom analytics profile for the beta. Ads are <strong>off</strong>.</p>
+
+    <h2>2a. Who can see your profile</h2>
+    <p>
+      Your <code>PublicProfile</code> record lives in a <strong>public</strong> CloudKit database, so anyone using Brook can
+      technically reach it. Brook applies your chosen visibility on top of that:
+    </p>
+    <ul>
+      <li><strong>Everyone (default)</strong> — your plates, badges, statuses, friend count and friends list are visible to other Brook users.</li>
+      <li><strong>Friends only</strong> — switch “Who can see your profile” on your profile to Friends only. Only people you have accepted as friends see your <strong>plates, badges, statuses, friend count and friends list</strong>.</li>
+    </ul>
+    <p>
+      With friends-only on, these stay visible to everyone so you remain findable and identifiable:
+      <strong>username, display name, avatar, and bio</strong>. Someone who is not your friend sees a notice that the account is
+      private, plus an option to add you. Hiding those header fields would make the account impossible to search for or add.
+    </p>
+    <p>
+      Please read that honestly: this is a <strong>product-level visibility setting, not a hard security boundary</strong>.
+      Because the record sits in CloudKit’s public database, the filtering is applied by the Brook app rather than enforced by the
+      server. Treat anything you post as capable of being seen by a determined person with a modified client, and do not put
+      information you need kept confidential into your profile or posts.
+    </p>
+    <p>Turning friends-only on or off is reversible at any time and takes effect for other users the next time their app reads your profile.</p>
 
     <h2>3. How we collect it</h2>
     <ul>
@@ -232,7 +254,8 @@
     <ul>
       <li><strong>On device:</strong> Diary data lives on your iPhone. Deleting the app removes local Brook storage, subject to how iOS handles app deletion.</li>
       <li><strong>Nom Noms / PublicProfile:</strong> In Settings you can <strong>Delete my Brook profile</strong> (when you have a claimed handle). That best-effort deletes your PublicProfile and your FeedPosts / FeedIndex from CloudKit and clears the local claim. Some friend-request / inbox remnants may remain until cleaned by normal friend flows; contact us if you need help finishing a wipe.</li>
-      <li><strong>Blocks:</strong> Stored on your device only; clearing Brook / reinstall clears them unless restored from a backup.</li>
+      <li><strong>Blocks:</strong> Stored on your device only; clearing Brook / reinstall clears them unless restored from a backup. Your device also caches the blocked person’s name, handle and avatar so you can recognise them in Settings.</li>
+      <li><strong>Reports:</strong> A report you submit (including its snapshot of the reported post) stays in the public CloudKit database so it can be reviewed, and is marked resolved with a timestamp when handled. Deleting your Brook profile also removes reports you filed.</li>
       <li><strong>HealthKit:</strong> Data written to Apple Health remains under your Apple Health controls.</li>
       <li><strong>AI / third parties:</strong> Content sent for a request is processed to return a result. Third-party retention is governed by those providers’ policies.</li>
       <li><strong>Requests:</strong> Email <a href="mailto:feedback@brook.app">feedback@brook.app</a> for privacy questions.</li>
@@ -253,6 +276,7 @@
       <li>Deny or revoke <strong>Camera, Photos, Location, Notifications, Health</strong> in <strong>iOS Settings → Brook</strong> (and Health app sharing settings).</li>
       <li>Stop using AI features that upload images/text.</li>
       <li>Unshare / delete Nom Noms posts; delete your Brook profile from Settings; block or report others’ posts.</li>
+      <li>Change <strong>who can see your profile</strong> — Everyone or Friends only — from your profile in the Friends area.</li>
       <li>Delete the app to remove local Brook storage.</li>
       <li>Contact <a href="mailto:feedback@brook.app">feedback@brook.app</a>.</li>
     </ul>
